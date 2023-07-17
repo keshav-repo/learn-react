@@ -527,6 +527,79 @@ Since the `count` variable is not directly accessible from outside the `createCo
 
 By utilizing closures and lexical scope in this way, we create a module-like structure where private variables can be encapsulated and accessed only through the exposed public interface of the returned object. This helps in creating more robust and maintainable code by controlling access to internal data.
 
+## Inheritance 
+
+In JavaScript, inheritance is achieved through prototype-based inheritance. Here are some important concepts related to inheritance in JavaScript:
+
+1. Prototypes:
+   In JavaScript, every object has an internal property called `prototype`. The `prototype` property refers to another object, known as the object's prototype. It acts as a blueprint or template for creating new objects. When a property or method is accessed on an object, and it is not found directly on the object itself, JavaScript will look for it in the object's prototype.
+
+2. Prototype Chain:
+   The prototype chain is a mechanism in JavaScript that allows objects to inherit properties and methods from their prototype. When a property or method is accessed on an object, JavaScript will first look for it on the object itself. If not found, it will then search the object's prototype. This process continues until the property or method is found or until the end of the prototype chain is reached (where the prototype is `null`).
+
+3. Inheritance using `prototype`:
+   JavaScript allows you to create inheritance relationships between objects using the `prototype` property. By assigning an object as the prototype of another object, you establish an inheritance relationship. The child object can then access properties and methods from its prototype.
+
+4. Constructor Functions:
+   Constructor functions are used to create objects with a shared prototype. They act as a blueprint for creating multiple instances of similar objects. Constructor functions are defined using regular function syntax and are typically named with an uppercase first letter. When a constructor function is invoked with the `new` keyword, it creates a new instance of the object and sets its prototype.
+
+5. `Object.create()` method:
+   The `Object.create()` method allows you to create a new object with a specified prototype. It provides a way to explicitly define the prototype of an object without using constructor functions.
+
+6. `super` keyword (ES6 onwards):
+   Starting from ECMAScript 2015 (ES6), JavaScript introduced the `super` keyword for accessing the parent's properties and methods within a child object. It allows you to call the parent's constructor and access its methods from the child object.
+
+These concepts form the foundation of inheritance in JavaScript and enable you to create hierarchies of objects with shared behavior and properties. By leveraging prototypes and the prototype chain, you can achieve inheritance and code reuse in a flexible and dynamic manner.
+
+## Error 
+In JavaScript, errors occur when an unexpected condition or behavior is encountered during the execution of a program. Here are some common types of errors in JavaScript along with examples:
+
+1. SyntaxError:
+   SyntaxError occurs when there is a syntax error in the JavaScript code. It typically happens when you make a mistake in the syntax, such as missing parentheses, mismatched curly braces, or using reserved keywords incorrectly.
+
+   Example:
+   ```javascript
+   if (x > 10  // Missing closing parenthesis
+       console.log("x is greater than 10");
+   ```
+
+2. ReferenceError:
+   ReferenceError occurs when you try to access a variable or function that is not defined or out of scope.
+
+   Example:
+   ```javascript
+   console.log(x); // ReferenceError: x is not defined
+   ```
+
+3. TypeError:
+   TypeError occurs when you perform an operation on a value of an unexpected type. For example, trying to call a non-function value, accessing a property of `null` or `undefined`, or performing incompatible operations.
+
+   Example:
+   ```javascript
+   var x = null;
+   console.log(x.foo); // TypeError: Cannot read property 'foo' of null
+   ```
+
+4. RangeError:
+   RangeError occurs when you use a numeric value that is out of range, such as an array index that is negative or exceeds the length of an array.
+
+   Example:
+   ```javascript
+   var arr = [1, 2, 3];
+   console.log(arr[10]); // RangeError: Invalid array length
+   ```
+
+5. TypeError (in strict mode):
+   In strict mode, assigning a value to an undeclared variable or attempting to modify read-only properties will throw a TypeError.
+
+   Example:
+   ```javascript
+   'use strict';
+   x = 10; // TypeError: Assignment to undeclared variable
+   ```
+
+These are just a few examples of common JavaScript errors. It's important to understand the different types of errors and their causes to effectively debug and handle them in your JavaScript code.
+
 
 
 
