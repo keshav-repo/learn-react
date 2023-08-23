@@ -70,7 +70,7 @@ export default function ComboBox() {
                 options={sugestionList}
                 getOptionLabel={optionLabelCustom}
                 isOptionEqualToValue={customEquals}
-                sx={{ width: 'auto' }}
+                sx={{ width: '300' }}
                 onKeyDown={handleKeyEvent}
                 onInputChange={handleInputvalueChange}
                 renderInput={(params) => <TextField {...params} label="" />}
