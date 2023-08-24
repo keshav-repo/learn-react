@@ -1,0 +1,163 @@
+@import "_reset";
+@import "_colors";
+
+$myfont: Helvetica, sans-serif;
+$mycolor: red;
+$myfontsize: 18px;
+$myWidth: 680px;
+
+body {
+    font-family: $myfont;
+    font-size: $myfontsize;
+    color: $mycolor;
+}
+
+#container {
+    width: $myWidth;
+}
+
+h1 {
+    $mycolor: green;
+    color: $mycolor;
+}
+
+p {
+    color: $myBlue;
+}
+
+nav {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    a {
+        display: block;
+        padding: 16px 12px;
+        text-decoration: none;
+    }
+}
+
+font {
+    family: Helvetica, sans-serif;
+    size: 18px;
+    weight: bold;
+}
+
+text {
+    align: center;
+    transform: lowercase;
+    overflow: hidden;
+}
+
+@mixin important-text {
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
+    border: 1px solid blue;
+}
+
+.danger {
+    @include important-text;
+    background-color: green;
+}
+
+@mixin special-text {
+    @include important-text;
+}
+
+@mixin bordered($color, $width: 1px) {
+    border: $width solid $color;
+}
+
+.myArticle {
+    @include bordered(blue, 1px);
+}
+
+.myNotes {
+    @include bordered($myGreen, 2px);
+}
+
+.button-basic {
+    border: none;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button-report {
+    @extend .button-basic;
+    background-color: red;
+}
+
+.button-submit {
+    @extend .button-basic;
+    background-color: green;
+    color: white;
+}
+
+$myString: "Hello, world!";
+
+.index {
+  index: str-index($myString, "world"); // Outputs: 7
+  index2: str-insert("Hello world!", " wonderful", 6);
+  idx3: str-length("Hello world!");
+  idx4: str-slice("Hello world!", 2, 5);
+  idx5: to-lower-case("Hello World!");
+  idx6: to-upper-case("Hello World!");
+  idx7: unique-id();
+  idx8: unquote("Hello world!")
+}
+
+.class4{
+    a: abs(-15);
+    b: ceil($number: 15.20);
+    c: comparable(15px, 10px);
+    d: floor(15.80);
+    e: max(5, 7, 9, 0, -3, -7);
+    f: min(5, 7, 9, 0, -3, -7);
+    g: percentage(1.2);
+    h: random();
+    i: random(6);
+    j: round(15.80)
+}
+
+// Creating a list
+$list: 10px 20px 30px;
+
+// Accessing values in a list
+$value1: nth($list, 1); // 10px
+$value2: nth($list, 2); // 20px
+
+// Changing a value in a list
+$list: set-nth($list, 2, 25px); // Replaces the second value with 25px
+
+// Adding values to a list
+$list: append($list, 40px); // Adds 40px to the end of the list
+
+// Joining two lists
+$anotherList: 50px 60px;
+$combinedList: join($list, $anotherList); // Combines both lists
+
+// Iterating through a list
+@each $value in $list {
+  .box-#{$value} {
+    width: $value;
+    height: $value;
+  }
+}
+
+class5{
+    a: zip(1px 2px 3px, solid dashed dotted, red green blue)
+}
+
+
+
+
+
